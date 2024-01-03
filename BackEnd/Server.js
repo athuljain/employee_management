@@ -16,6 +16,11 @@ mongoose.connect(process.env.MONGODB_URI, {
     console.error("Connection to database failed:", error);
   });
 
+//HR Route
+
+const hrRoute=('./routes/hrRoute.js')
+app.use("/hr",hrRoute)
+
 app.listen(5000, () => {
   console.log('Server is running on port 5000');
 });
