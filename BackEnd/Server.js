@@ -1,22 +1,21 @@
-const express=require('express')
-const mongoose=require('mongoose')
-require('dotenv').config()
-const app=express()
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
-
-mongoose.connect(process.env.MONGODB_URL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
-.then(() => {
-    console.log("data base connect");
+  .then(() => {
+    console.log("Database connected successfully");
   })
-  .catch(() => {
-    console.log("connection failed");
+  .catch((error) => {
+    console.error("Connection to database failed:", error);
   });
 
-  app.listen(5000,()=>{
-    console.log('Server is Running on port 5000');
-  })
+app.listen(5000, () => {
+  console.log('Server is running on port 5000');
+});
