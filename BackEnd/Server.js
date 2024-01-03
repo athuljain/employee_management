@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const hrRoute = require('./routes/hrRoute.js');
+
 require('dotenv').config();
 const app = express();
 
@@ -18,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 //HR Route
 
-const hrRoute=('./routes/hrRoute.js')
+
 app.use("/hr",hrRoute)
 
 app.listen(5000, () => {
