@@ -7,6 +7,7 @@ const hrLogin = async (req, res) => {
     try {
       const email = req.body.email;
       const password = req.body.password;
+      
   
       // Check if the provided email and password match the predefined values
       if (email !== "hr@gmail.com" || password !== "hr@123") {
